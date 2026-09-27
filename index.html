@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aminata & Moussa | Rose élégant</title>
+
+  <style>
+    :root {
+      --rose-light: #f8e8eb;
+      --rose-pale: #fff7f8;
+      --rose: #d58b98;
+      --rose-dark: #a95768;
+      --rose-deep: #713746;
+      --gold: #c5a263;
+      --cream: #fcf8f4;
+      --brown: #3d2b2f;
+      --muted: #817276;
+      --white: #fffdfc;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--rose-pale);
+      color: var(--brown);
+      font-family: Arial, sans-serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      width: min(100%, 1050px);
+      margin: auto;
+      overflow: hidden;
+      background: var(--white);
+      box-shadow: 0 15px 40px rgba(113, 55, 70, .12);
+    }
+
+    /* Navigation */
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 18px 6%;
+      background: rgba(255, 253, 252, .96);
+      border-bottom: 1px solid var(--rose-light);
+      backdrop-filter: blur(10px);
+    }
+
+    .logo {
+      color: var(--rose-dark);
+      font-family: Georgia, serif;
+      font-size: 1.7rem;
+      font-style: italic;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      color: var(--muted);
+      font-size: .7rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .nav-links a:hover {
+      color: var(--rose-dark);
+    }
+
+    /* Couverture */
+
+    .hero {
+      position: relative;
+      min-height: 720px;
+      display: grid;
+      place-items: center;
+      padding: 80px 20px;
+      overflow: hidden;
+      text-align: center;
+      background:
+        linear-gradient(rgba(113, 55, 70, .55), rgba(113, 55, 70, .55)),
+        url("wedding9.jpg")
+        center/cover no-repeat;
+    }
+
+    .hero::before,
+    .hero::after {
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      border: 1px solid rgba(248, 232, 235, .85);
+      content: "";
+      transform: rotate(45deg);
+    }
+
+    .hero::before {
+      top: 38px;
+      left: 38px;
+    }
+
+    .hero::after {
+      right: 38px;
+      bottom: 38px;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: min(760px, 100%);
+      padding: 55px 25px;
+      border: 1px solid rgba(248, 232, 235, .9);
+      color: white;
+    }
+
+    .hero-content::before,
+    .hero-content::after {
+      position: absolute;
+      color: var(--gold);
+      font-size: 1.5rem;
+      content: "✦";
+    }
+
+    .hero-content::before {
+      top: 12px;
+      left: 16px;
+    }
+
+    .hero-content::after {
+      right: 16px;
+      bottom: 12px;
+    }
+
+    .eyebrow {
+      margin-bottom: 24px;
+      color: var(--rose-light);
+      font-family: Georgia, serif;
+      font-size: 1.2rem;
+      font-style: italic;
+    }
+
+    .names {
+      font-family: Georgia, serif;
+      font-size: clamp(3.2rem, 9vw, 6.5rem);
+      font-style: italic;
+      font-weight: normal;
+      line-height: 1;
+    }
+
+    .names span {
+      color: var(--gold);
+    }
+
+    .hero-date {
+      margin-top: 28px;
+      color: #fff1f3;
+      font-size: .85rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+
+    /* Sections */
+
+    .section {
+      scroll-margin-top: 80px;
+      padding: 80px 7%;
+      text-align: center;
+    }
+
+    .section:nth-child(even) {
+      background: var(--rose-pale);
+    }
+
+    .section-title {
+      display: inline-block;
+      position: relative;
+      margin-bottom: 20px;
+      color: var(--rose-deep);
+      font-family: Georgia, serif;
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-style: italic;
+      font-weight: normal;
+    }
+
+    .section-title::after {
+      display: block;
+      width: 75px;
+      height: 1px;
+      margin: 12px auto 0;
+      background: var(--gold);
+      content: "";
+    }
+
+    .section-intro {
+      max-width: 700px;
+      margin: 0 auto 35px;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .welcome {
+      max-width: 750px;
+      margin: auto;
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    .welcome strong {
+      color: var(--rose-dark);
+      font-family: Georgia, serif;
+      font-size: 1.5rem;
+    }
+
+    /* Compte à rebours */
+
+    .countdown {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      max-width: 620px;
+      margin: 35px auto 0;
+    }
+
+    .count-box {
+      padding: 18px 8px;
+      border: 1px solid var(--rose-light);
+      background: var(--white);
+    }
+
+    .count-box strong {
+      display: block;
+      color: var(--rose-dark);
+      font-family: Georgia, serif;
+      font-size: 2rem;
+    }
+
+    .count-box span {
+      color: var(--muted);
+      font-size: .68rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    /* Détails */
+
+    .details-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      max-width: 900px;
+      margin: 35px auto;
+    }
+
+    .detail-card {
+      padding: 25px 15px;
+      border: 1px solid var(--rose-light);
+      background: var(--white);
+    }
+
+    .detail-card strong {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--rose-dark);
+      font-family: Georgia, serif;
+      font-size: 1.3rem;
+      font-style: italic;
+    }
+
+    .detail-card span {
+      color: var(--muted);
+    }
+
+    .program {
+      max-width: 560px;
+      margin: 35px auto 0;
+      text-align: left;
+    }
+
+    .program h3 {
+      margin-bottom: 15px;
+      color: var(--rose-deep);
+      font-family: Georgia, serif;
+      font-size: 1.9rem;
+      font-style: italic;
+      text-align: center;
+    }
+
+    .program li {
+      display: flex;
+      gap: 20px;
+      padding: 13px 0;
+      border-bottom: 1px solid var(--rose-light);
+      color: var(--muted);
+      list-style: none;
+    }
+
+    .program li strong {
+      min-width: 65px;
+      color: var(--rose-deep);
+    }
+
+    /* Galerie */
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      max-width: 900px;
+      margin: 35px auto 0;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 240px;
+      border: 3px solid var(--rose-light);
+      object-fit: cover;
+      transition: transform .3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.025);
+    }
+
+    /* Boutons */
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 25px;
+      padding: 14px 26px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--rose-dark), var(--rose-deep));
+      color: white;
+      font-weight: bold;
+      box-shadow: 0 8px 18px rgba(169, 87, 104, .22);
+      transition: .2s;
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+      background: var(--rose-deep);
+    }
+
+    .gold-button {
+      background: linear-gradient(135deg, var(--gold), #967637);
+    }
+
+    .rsvp-box {
+      max-width: 700px;
+      margin: auto;
+      padding: 42px 25px;
+      border: 1px solid var(--rose-light);
+      background: var(--cream);
+    }
+
+    footer {
+      padding: 27px;
+      background: var(--rose-deep);
+      color: white;
+      font-family: Georgia, serif;
+      font-style: italic;
+      text-align: center;
+    }
+
+    @media (max-width: 760px) {
+      .navbar {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 16px 5%;
+      }
+
+      .nav-links {
+        width: 100%;
+        justify-content: space-between;
+        gap: 6px;
+        font-size: .57rem;
+      }
+
+      .hero {
+        min-height: 650px;
+      }
+
+      .hero-content {
+        padding: 45px 18px;
+      }
+
+      .hero::before,
+      .hero::after {
+        width: 90px;
+        height: 90px;
+      }
+
+      .details-grid,
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery img {
+        height: 300px;
+      }
+
+      .section {
+        padding: 65px 6%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .names {
+        font-size: 3.3rem;
+      }
+
+      .hero-date {
+        font-size: .68rem;
+        letter-spacing: .1em;
+      }
+
+      .countdown {
+        gap: 5px;
+      }
+
+      .count-box strong {
+        font-size: 1.35rem;
+      }
+
+      .count-box span {
+        font-size: .55rem;
+      }
+
+      .program li {
+        gap: 10px;
+        font-size: .9rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+    <header class="navbar">
+      <a href="#accueil" class="logo">A &amp; M</a>
+
+      <nav class="nav-links">
+        <a href="#accueil">Accueil</a>
+        <a href="#details">Détails</a>
+        <a href="#programme">Programme</a>
+        <a href="#galerie">Galerie</a>
+        <a href="#rsvp">Confirmation</a>
+      </nav>
+    </header>
+
+    <main>
+
+      <section class="hero" id="accueil">
+        <div class="hero-content">
+          <div class="eyebrow">Invitation de mariage</div>
+
+          <h1 class="names">
+            Aminata <span>&amp;</span> Moussa
+          </h1>
+
+          <div class="hero-date">
+            14 décembre 2026 · Dakar, Sénégal
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Notre grand jour</h2>
+
+        <p class="welcome">
+          Nous avons le plaisir de vous inviter à célébrer notre mariage.
+          Votre présence rendra cette journée encore plus spéciale.
+          <br><br>
+          Avec amour,<br>
+          <strong>Aminata &amp; Moussa</strong>
+        </p>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Le compte à rebours</h2>
+
+        <p class="section-intro">
+          Nous avons hâte de partager ce moment avec vous.
+        </p>
+
+        <div class="countdown">
+          <div class="count-box">
+            <strong id="days">00</strong>
+            <span>Jours</span>
+          </div>
+
+          <div class="count-box">
+            <strong id="hours">00</strong>
+            <span>Heures</span>
+          </div>
+
+          <div class="count-box">
+            <strong id="minutes">00</strong>
+            <span>Minutes</span>
+          </div>
+
+          <div class="count-box">
+            <strong id="seconds">00</strong>
+            <span>Secondes</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="details">
+        <h2 class="section-title">Les détails</h2>
+
+        <p class="section-intro">
+          Toutes les informations utiles pour notre célébration.
+        </p>
+
+        <div class="details-grid">
+          <div class="detail-card">
+            <strong>Date</strong>
+            <span>14 décembre 2026</span>
+          </div>
+
+          <div class="detail-card">
+            <strong>Heure</strong>
+            <span>À partir de 15h30</span>
+          </div>
+
+          <div class="detail-card">
+            <strong>Lieu</strong>
+            <span>Dakar, Sénégal</span>
+          </div>
+
+          <div class="detail-card">
+            <strong>Cérémonie</strong>
+            <span>Villa de la Paix</span>
+          </div>
+
+          <div class="detail-card">
+            <strong>Réception</strong>
+            <span>Dans la même salle</span>
+          </div>
+
+          <div class="detail-card">
+            <strong>Tenue</strong>
+            <span>Chic et élégante</span>
+          </div>
+        </div>
+
+        <a
+          class="button gold-button"
+          href="https://www.google.com/maps/search/?api=1&query=Dakar%20Sénégal"
+          target="_blank"
+          rel="noopener"
+        >
+          Voir l'itinéraire
+        </a>
+      </section>
+
+      <section class="section" id="programme">
+        <h2 class="section-title">Programme</h2>
+
+        <div class="program">
+          <ul>
+            <li><strong>15h30</strong><span>Accueil des invités</span></li>
+            <li><strong>16h00</strong><span>Cérémonie de mariage</span></li>
+            <li><strong>18h00</strong><span>Séance photos</span></li>
+            <li><strong>19h30</strong><span>Cocktail</span></li>
+            <li><strong>20h30</strong><span>Dîner et soirée</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="galerie">
+        <h2 class="section-title">Galerie</h2>
+
+        <p class="section-intro">
+          Quelques images pour partager l'esprit de cette belle célébration.
+        </p>
+
+        <div class="gallery">
+          <img src="wedding3.jpg" alt="Souvenir des mariés">
+          <img src="wedding4.jpg" alt="Décoration de mariage">
+          <img src="wedding6.jpg" alt="Célébration">
+          <img src="wedding7.jpg" alt="Mariage élégant">
+          <img src="wedding5.jpg" alt="Moment du mariage">
+          <img src="wedding10.jpg" alt="Célébration des mariés">
+        </div>
+      </section>
+
+      <section class="section" id="rsvp">
+        <div class="rsvp-box">
+          <h2 class="section-title">Confirmation de présence</h2>
+
+          <p class="section-intro">
+            Merci de confirmer votre présence auprès des mariés.
+          </p>
+
+          <a
+            class="button"
+            href="https://wa.me/221770000000?text=Bonjour%2C%20je%20confirme%20ma%20présence%20au%20mariage%20d'Aminata%20et%20Moussa."
+            target="_blank"
+            rel="noopener"
+          >
+            Je confirme ma présence
+          </a>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      Aminata &amp; Moussa · 14 décembre 2026
+    </footer>
+  </div>
+
+  <script>
+    const dateDuMariage =
+      new Date("2026-12-14T15:30:00").getTime();
+
+    function mettreAJourCompteARebours() {
+      const maintenant = new Date().getTime();
+      const difference = dateDuMariage - maintenant;
+
+      if (difference <= 0) {
+        document.getElementById("days").textContent = "00";
+        document.getElementById("hours").textContent = "00";
+        document.getElementById("minutes").textContent = "00";
+        document.getElementById("seconds").textContent = "00";
+        return;
+      }
+
+      const jours = Math.floor(
+        difference / (1000 * 60 * 60 * 24)
+      );
+
+      const heures = Math.floor(
+        (difference % (1000 * 60 * 60 * 24)) /
+        (1000 * 60 * 60)
+      );
+
+      const minutes = Math.floor(
+        (difference % (1000 * 60 * 60)) /
+        (1000 * 60)
+      );
+
+      const secondes = Math.floor(
+        (difference % (1000 * 60)) /
+        1000
+      );
+
+      document.getElementById("days").textContent =
+        String(jours).padStart(2, "0");
+
+      document.getElementById("hours").textContent =
+        String(heures).padStart(2, "0");
+
+      document.getElementById("minutes").textContent =
+        String(minutes).padStart(2, "0");
+
+      document.getElementById("seconds").textContent =
+        String(secondes).padStart(2, "0");
+    }
+
+    mettreAJourCompteARebours();
+    setInterval(mettreAJourCompteARebours, 1000);
+  </script>
+</body>
+</html>
